@@ -25,6 +25,11 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+const routers = require('./src/routers')
+app.disable('etag');
+app.use(express.json());
+app.use(routers);
+
 
 
 // listen for requests :)
